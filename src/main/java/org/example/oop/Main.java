@@ -3,7 +3,6 @@ import java.util.HashMap;
 
 public class Main {
 
-
     public static void main(String[] args) {
         DeviceManager manager = new DeviceManager();
         manager.add(new Desktop(512, 2, 4, 2));
