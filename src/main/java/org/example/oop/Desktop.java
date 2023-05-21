@@ -16,9 +16,9 @@ public class Desktop extends Device {
     }
 
     public int getSpace() {
-        int space = getSpace() * 3;
+        int space = this.space; // *3; entfernt - Angabe davor falsch interpretiert
         return space;
-    } // KA was das ist, von mir lol
+    }
 
     public int getNumberUSBSlots() {
         return numberUSBSlots;
@@ -26,14 +26,20 @@ public class Desktop extends Device {
 
 
     public double price() {
+
+        // float defaultPrice = 0;
+
+        // syntaktischer Zucker: defaultPrice = defaultPrice/2;
+        // remember: there is no such thing as over explaining in the software realm, right chatty?
+
         if (numberUSBSlots == 1) {
-            return 10 * getSpace(); // Preis für Laptop mit Nummernblock
-        } else if (numberUSBSlots < 3 && getSpace() <= 256) {
-            getSpace();
+            return 10 * getSpace() + getNumberUSBSlots() * 20; // Preis für Laptop mit Nummernblock
+        } else if (numberUSBSlots <= 2 && getSpace() <= 256) {
+            //getSpace();
+            return (double) (10 * getSpace() + getNumberUSBSlots() * 20) /2;
         } else {
-            return 800.0; // Preis für Laptop ohne Nummernblock
+            return 300; // leider in Angabe kein Fixpreis für alle anderen Fälle bzw. generell deklariert!
         }
-        return 0;
     }
 
     @Override
@@ -43,10 +49,69 @@ public class Desktop extends Device {
     }
 
     @Override
+    public int getRam() {
+        return 0;
+    }
+
+    @Override
+    public int getProcessors() {
+        return 0;
+    }
+
+    @Override
     public double getPrice() {
         return price();
     }
+
+    public void setNumberUSBSlots(int numberUSBSlots) {
+        this.numberUSBSlots = numberUSBSlots;
+    }
 }
 
+/*
+public class Desktop extends Device {
+        private int numberUSBslots;
+
+        public Desktop(int space, int numberUSBslots) {
+            super(space);
+            if (numberUSBslots < 1) {
+                numberUSBslots = 1;
+            }
+            this.numberUSBslots = numberUSBslots;
+        }
+
+        public int getNumberUSBslots() {
+            return numberUSBslots;
+        }
+
+        @Override
+        public double getPrice() {
+            double price = numberUSBslots * 20 + getSpace() * 10;
+            if (numberUSBslots < 3 && getSpace() <= 256) {
+                price /= 2.0;
+            }
+            return price;
+        }
+
+        @Override
+        public int getRam() {
+            // Desktop hat keinen speziellen RAM
+            return 0;
+        }
+
+        @Override
+        public int getProcessors() {
+            // Desktop hat keinen speziellen Prozessor
+            return 0;
+        }
+
+        @Override
+        public String toString() {
+            return super.toString() + String.format("; USB-Slots: %d", numberUSBslots);
+        }
+    }
+
+
+ */
 
 

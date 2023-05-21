@@ -41,7 +41,21 @@ package org.example.oop;
         }
 
         @Override
+        public int getRam() {
+            return 0;
+        }
+
+        @Override
+        public int getProcessors() {
+            return 0;
+        }
+
+        @Override
         public double getPrice() {
             return price();
+        }
+
+        public int getNumberUSBSlots() {
+            return numberUSBSlots;
         }
     }
