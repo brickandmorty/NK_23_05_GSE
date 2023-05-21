@@ -28,17 +28,17 @@ public class Desktop extends Device {
     public double price() {
 
         // float defaultPrice = 0;
-
         // syntaktischer Zucker: defaultPrice = defaultPrice/2;
+
         // remember: there is no such thing as over explaining in the software realm, right chatty?
+        // am I the only one who talks to themselves in the comments section?
 
         if (numberUSBSlots == 1) {
-            return 10 * getSpace() + getNumberUSBSlots() * 20; // Preis für Laptop mit Nummernblock
+            return 10 * getSpace() + getNumberUSBSlots() * 20; // Preisberechnung für Desktop aus Angabe
         } else if (numberUSBSlots <= 2 && getSpace() <= 256) {
-            //getSpace();
-            return (double) (10 * getSpace() + getNumberUSBSlots() * 20) /2;
+            return (double) (10 * getSpace() + getNumberUSBSlots() * 20) / 2;
         } else {
-            return 300; // leider in Angabe kein Fixpreis für alle anderen Fälle bzw. generell deklariert!
+            return 300; // leider in Angabe kein Fixpreis für alle anderen Fälle bzw. generell deklariert - bsp. 300 genommen
         }
     }
 
