@@ -37,9 +37,14 @@ public class Desktop extends Device {
             return 10 * getSpace() + getNumberUSBSlots() * 20; // Preisberechnung für Desktop aus Angabe
         } else if (numberUSBSlots <= 2 && getSpace() <= 256) {
             return (double) (10 * getSpace() + getNumberUSBSlots() * 20) / 2;
-        } else {
-            return 300; // leider in Angabe kein Fixpreis für alle anderen Fälle bzw. generell deklariert - bsp. 300 genommen
+        } else if ( ram >= 16000) {
+             return (double) (10 * getSpace() + getNumberUSBSlots() * 20) / 3;
+            } else {
+            return (double) (10 * getSpace() + getNumberUSBSlots() * 20) / 1.8 ;
+
+            // okay, das mit den default 300,- war eine schlechte business idee.. verworfen.
         }
+
     }
 
     @Override
