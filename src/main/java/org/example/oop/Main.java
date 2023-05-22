@@ -12,7 +12,8 @@ public class Main {
         manager.add(new Laptop(128, 2, 2, 2, true));
         manager.add(new Laptop(512, 4, 2, 2, true));
         manager.add(new Laptop(128, 1, 1, 2, false));
-        manager.add(new Mobile(128, 2, 2, 2, 2));
+        manager.add(new Mobile(4, 128, 2, 108, 1));
+        manager.add(new Mobile(6, 256, 4, 200, 1));
 
 
         manager.printAll();
